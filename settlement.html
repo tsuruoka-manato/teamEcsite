@@ -26,14 +26,14 @@
 			<!--  ログインユーザーの宛先を表示させる -->
 		<table class="destination" th:if="${destinations != null && destinations.size() > 0}" >
 		
-			<tr bgcolor="lightgray"><!-- TODO cssに合わせて色を変える -->
+			<tr bgcolor="lightgray">
 				<th>選択</th><th>宛先氏名</th><th>住所</th><th>電話番号</th>
 			</tr>
 			
-			<!-- eachで宛先が複数ある時のループ処理 --><!-- stはステータス？ -->
+			<!-- eachで宛先が複数ある時のループ処理 -->
 			<tr th:each="destination, st: ${destinations}" >
 			
-				<!-- radioボタンの値にmst_destinationテーブルのidを設定 --><!--　th:checked="${st.index==0}"の部分確認  -->
+				<!-- radioボタンの値にmst_destinationテーブルのidを設定 -->
 				<td><input type="radio" name="id" th:checked="${st.index==0}"	th:value="${destination.id}" class="radio" /></td>
 				
 				<td><!-- spanでグループ化　テーブルから得た苗字と名前の形を整える -->

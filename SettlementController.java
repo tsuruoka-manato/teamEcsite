@@ -37,12 +37,11 @@ public class SettlementController {
 	@Autowired
 	TblPurchaseHistoryMapper tblPurchaseHistoryMapper;
 	
-	/*userID long型 int型*/
 	@RequestMapping("/")
 	public String index(Model m) {
 		long userId = loginSession.getUserId();
 		
-	/*mst_destinationテーブルからユーザーの宛先情報を取得する ※開発予習sessionテキスト*/
+	//mst_destinationテーブルからユーザーの宛先情報を取得する
 		List<MstDestination> destinations = mstDestinationMapper.findByUserId((int) userId);
 		m.addAttribute("loginSession", loginSession);
 		m.addAttribute("destinations", destinations);
